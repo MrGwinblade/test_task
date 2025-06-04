@@ -21,9 +21,9 @@ export const useGraph = () => {
   const nodes = useAppSelector((state) => state.graph.nodes)
   const edges = useAppSelector((state) => state.graph.edges)
 
-  // Загружаем данные из localStorage при первом рендере
+  
   useEffect(() => {
-    // Проверяем, есть ли данные в localStorage
+    
     if (typeof window !== "undefined") {
       const hasStoredNodes = localStorage.getItem("reactflow-nodes")
       if (hasStoredNodes && nodes.length === 0) {

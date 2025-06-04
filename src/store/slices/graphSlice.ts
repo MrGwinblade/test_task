@@ -14,11 +14,6 @@ interface InitialState {
     edges: EdgeType[];
 }
 
-// const initialState: InitialState = {
-//     nodes: [],
-//     edges: [],
-// };
-
 const loadStateFromLocalStorage = (): InitialState => {
   try {
     if (typeof window !== "undefined") {
@@ -28,7 +23,7 @@ const loadStateFromLocalStorage = (): InitialState => {
       const nodes = serializedNodes ? JSON.parse(serializedNodes) : []
       const edges = serializedEdges ? JSON.parse(serializedEdges) : []
 
-      // Валидация загруженных данных
+      
       if (Array.isArray(nodes) && Array.isArray(edges)) {
         return { nodes, edges }
       }
@@ -37,14 +32,14 @@ const loadStateFromLocalStorage = (): InitialState => {
     console.warn("Failed to load state from localStorage:", error)
   }
 
-  // Возвращаем пустое состояние если загрузка не удалась
+  
   return {
     nodes: [],
     edges: [],
   }
 }
 
-// Функция для сохранения состояния в localStorage
+
 const saveStateToLocalStorage = (nodes: NodeType[], edges: EdgeType[]) => {
   try {
     if (typeof window !== "undefined") {
@@ -65,12 +60,12 @@ const graphSlice = createSlice({
   reducers: {
     setNodes: (state, action: PayloadAction<NodeType[]>) => {
       state.nodes = action.payload
-      // Автоматически сохраняем в localStorage при изменении
+      
       saveStateToLocalStorage(action.payload, state.edges)
     },
     setEdges: (state, action: PayloadAction<EdgeType[]>) => {
       state.edges = action.payload
-      // Автоматически сохраняем в localStorage при изменении
+      
       saveStateToLocalStorage(state.nodes, action.payload)
     },
     clearStorage: (state) => {

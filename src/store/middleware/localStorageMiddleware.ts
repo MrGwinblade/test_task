@@ -1,7 +1,7 @@
 import { createListenerMiddleware } from "@reduxjs/toolkit"
 import { setNodes, setEdges } from "../slices/graphSlice"
 
-// Дополнительный middleware для более сложной логики сохранения (опционально)
+
 export const localStorageMiddleware = createListenerMiddleware()
 
 // Задержка
@@ -10,7 +10,7 @@ let saveTimeout: NodeJS.Timeout | null = null
 localStorageMiddleware.startListening({
   actionCreator: setNodes,
   effect: (action, listenerApi) => {
-    // Дебаунсинг для предотвращения частых записей в localStorage
+    
     if (saveTimeout) {
       clearTimeout(saveTimeout)
     }

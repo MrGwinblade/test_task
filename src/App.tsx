@@ -94,7 +94,7 @@ function App() {
             [setNodes],
         )
 
-  // Fixed: Use current state from Redux selectors
+  
         const onEdgesChangeInternal = useCallback(
             (changes: EdgeChange<EdgeType>[]) => {
             const changedEdges = applyEdgeChanges(changes, edges)
