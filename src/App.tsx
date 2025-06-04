@@ -45,7 +45,7 @@ function App() {
         edges,
         setNodes,
         setEdges,
-        clearStoredData, reloadFromStorage
+        clearStoredData
     } = useGraph();
     const nodeTypes = useMemo(() => ({ custom: Node }), [])
 
@@ -149,7 +149,7 @@ function App() {
                         <FPSCounter/>
                         <button onClick={addNode}>Add Node</button>
                         <button onClick={clearStoredData}>clearStoredData</button>
-                        <button onClick={reloadFromStorage}>reloadFromStorage</button>
+                        
                     </Panel>
                     <Background variant={BackgroundVariant.Dots} gap={12} size={1}/>
                 </ReactFlow>

@@ -44,9 +44,6 @@ export const useGraph = () => {
     dispatch(clearStorage())
   }
 
-  const reloadFromStorage = () => {
-    dispatch(loadFromStorage())
-  }
 
   return {
     nodes,
@@ -54,6 +51,5 @@ export const useGraph = () => {
     setNodes,
     setEdges,
     clearStoredData,
-    reloadFromStorage,
   }
 }
